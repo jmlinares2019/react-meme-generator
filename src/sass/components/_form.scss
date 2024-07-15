@@ -1,0 +1,24 @@
+.meme-form{
+    padding: 30px 0;
+
+    .inputs{
+        padding-bottom: 20px;
+
+        label{
+            color: $mediumGrey;
+            font-weight: 500;
+        }
+    
+        input{
+            border-color: $lightGrey;
+        }
+    }
+
+    .btn{
+        width: 100%;
+        background-image: $purpleGradient;
+        color: white;
+        font-weight: 700;
+    }
+}
+

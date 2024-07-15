@@ -1,0 +1,11 @@
+.navbar{
+    height: 65px;
+    padding: remify(20px);
+    background-image: $purpleGradient; 
+
+    .metadata{
+        font-family: "Inter", sans-serif;
+        font-size: remify(12px);
+        color: white;
+    }
+}
