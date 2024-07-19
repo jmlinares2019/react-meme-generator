@@ -7,7 +7,8 @@ function Form(){
     const [meme, setMeme] = useState({
         topText: "",
         bottomText: "",
-        randomImage: ""
+        randomImage: "",
+        altText: ""
     })
 
     function handleText(e){
@@ -23,9 +24,11 @@ function Form(){
         const allMemes = memes.data.memes;
         let randomMemeId = Math.floor(allMemes.length * Math.random());
         let randomMeme = allMemes[randomMemeId].url;
+        let randomMemeAlt = allMemes[randomMemeId].name;
         setMeme(prevMeme => ({
                 ...prevMeme,
-                randomImage: randomMeme
+                randomImage: randomMeme,
+                altText: randomMemeAlt
             })
         )
     }
