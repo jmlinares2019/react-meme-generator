@@ -1,10 +1,13 @@
-import placeholder from "../assets/img/preview-placeholder.png";
-
-function Preview(){
+function Preview(props){
     return(
-        <div className="row img-wrapper">
-            <img src={placeholder} alt="Meme preview" />
-        </div> 
+        <div className="meme">
+            <img 
+                src={props.meme.randomImage}
+                alt={props.meme.altText} 
+                className="meme--image" />
+            <h2 className="meme--text top">{props.meme.topText}</h2>
+            <h2 className="meme--text bottom">{props.meme.bottomText}</h2>
+        </div>
     )
 }
 
