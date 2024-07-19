@@ -3,15 +3,30 @@ import memes from "../assets/memesData"
 
 function Form(){
 
-    const [ memeImgUrl, setMemeImgUrl ] = useState("");
+    const [meme, setMeme] = useState({
+        topText: "",
+        bottomText: "",
+        randomImage: ""
+    })
+
+    function handleText(e){
+        const { name, value } = e.target
+        setMeme(prevMeme => ({
+                ...prevMeme,
+                [name]: value
+            })
+        )
+    }
 
     function getRandomMeme(){
         const allMemes = memes.data.memes;
-        const totalMemes = allMemes.length;
-        let randomNumber = Math.random();
-        let randomMemeId = Math.floor(totalMemes * randomNumber);
+        let randomMemeId = Math.floor(allMemes.length * Math.random());
         let randomMeme = allMemes[randomMemeId].url;
-        setMemeImgUrl(randomMeme);
+        setMeme(prevMeme => ({
+                ...prevMeme,
+                randomImage: randomMeme
+            })
+        )
     }
 
     return(
@@ -21,16 +36,20 @@ function Form(){
                     <label htmlFor="top-text" className="form-label">Top text</label>
                     <input 
                         type="text"
-                        name="top-text" 
-                        className="form-control"   
+                        name="topText" 
+                        className="form-control"
+                        value={meme.topText}
+                        onChange={handleText}   
                     />
                 </div>  
                 <div className="col-6">
                     <label htmlFor="bottom-text" className="form-label">Bottom text</label>
                     <input 
                         type="text" 
-                        name="bottom-text" 
-                        className="form-control"  
+                        name="bottomText" 
+                        className="form-control"
+                        value={meme.bottomText}
+                        onChange={handleText}  
                     />
                 </div>
             </div>
@@ -39,7 +58,11 @@ function Form(){
                     <button className="btn form-button" onClick={getRandomMeme}>Get a new meme image</button>
                 </div>
             </div>
-            <img src={memeImgUrl} alt="" />
+            <div className="meme">
+                <img src={meme.randomImage} className="meme--image" />
+                <h2 className="meme--text top">{meme.topText}</h2>
+                <h2 className="meme--text bottom">{meme.bottomText}</h2>
+            </div>
         </div>
         
     )
