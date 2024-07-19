@@ -1,7 +1,7 @@
 import React from "react"
 import Navbar from "./components/Navbar"
 import Form from "./components/Form"
-import Preview from "./components/Preview"
+// import Preview from "./components/Preview"
 
 function App() {
 
@@ -10,7 +10,7 @@ function App() {
       <Navbar />
       <div className="container">
         <Form />
-        <Preview />
+        {/* <Preview /> */}
       </div>
       
     </div> 
