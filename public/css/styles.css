@@ -11847,7 +11847,7 @@ textarea.form-control-lg {
 .navbar {
   height: 65px;
   padding: 1.25rem;
-  background-image: linear-gradient(#672280, #A626D3);
+  background-image: linear-gradient(#2d49fb, #6d80ff);
 }
 .navbar .metadata {
   font-family: "Inter", sans-serif;
@@ -11870,7 +11870,7 @@ textarea.form-control-lg {
 }
 .meme-form .btn {
   width: 100%;
-  background-image: linear-gradient(#672280, #A626D3);
+  background-image: linear-gradient(#2d49fb, #6d80ff);
   color: white;
   font-weight: 700;
 }
