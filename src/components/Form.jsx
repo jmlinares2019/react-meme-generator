@@ -1,5 +1,4 @@
-import { useState, Fragment } from 'react'
-import memes from "../assets/memesData"
+import { useState, Fragment, useEffect } from 'react'
 import Preview from './Preview'
 
 function Form(){
@@ -11,17 +10,15 @@ function Form(){
         altText: ""
     })
 
-    function handleText(e){
-        const { name, value } = e.target
-        setMeme(prevMeme => ({
-                ...prevMeme,
-                [name]: value
-            })
-        )
-    }
+    const [allMemes, setAllMemes] = useState([])
 
-    function getRandomMeme(){
-        const allMemes = memes.data.memes;
+    useEffect(function(){
+        fetch('https://api.imgflip.com/get_memes')
+        .then(response => response.json())
+        .then(data => setAllMemes(data.data.memes))
+    }, [])
+
+    function getRandomImg(){
         let randomMemeId = Math.floor(allMemes.length * Math.random());
         let randomMeme = allMemes[randomMemeId].url;
         let randomMemeAlt = allMemes[randomMemeId].name;
@@ -29,6 +26,15 @@ function Form(){
                 ...prevMeme,
                 randomImage: randomMeme,
                 altText: randomMemeAlt
+            })
+        )
+    }
+
+    function handleText(e){
+        const { name, value } = e.target
+        setMeme(prevMeme => ({
+                ...prevMeme,
+                [name]: value
             })
         )
     }
@@ -60,7 +66,7 @@ function Form(){
                 </div>
                 <div className="row image-button">
                     <div className="col">
-                        <button className="btn form-button" onClick={getRandomMeme}>Get a new meme image</button>
+                        <button className="btn form-button" onClick={getRandomImg}>Get a new meme image</button>
                     </div>
                 </div>
             </div>
