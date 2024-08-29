@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/43afed9e-dece-458c-9b1d-5e7559a48e49/deploy-status)](https://app.netlify.com/sites/lets-meme/deploys)
+
 # React Meme generator
 
 Meme generator that calls [this API](https://api.imgflip.com/get_memes) to fetch a random meme image, that the user can then caption adding some classic meme text over it via a form.
